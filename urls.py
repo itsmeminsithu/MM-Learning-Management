@@ -1,0 +1,26 @@
+from django.urls import path
+from . import views, payments
+urlpatterns=[
+ path('courses/<slug:slug>/checkout/',payments.checkout,name='checkout'),
+ path('purchases/',payments.orders,name='orders'),
+ path('purchases/<uuid:pk>/',payments.order_detail,name='order'),
+ path('purchases/<uuid:pk>/receipt/',payments.receipt,name='receipt'),
+ path('merchant-qr/<int:pk>/',payments.merchant_qr,name='merchant_qr'),
+ path('payment-reviews/',payments.reviews,name='reviews'),
+ path('payment-reviews/<uuid:pk>/',payments.review,name='review'),
+ path('payments/stripe/webhook/',payments.stripe_webhook,name='stripe_webhook'),
+ path('',views.home,name='home'),path('courses/',views.catalog,name='catalog'),
+ path('accounts/signup/',views.signup,name='signup'),path('dashboard/',views.dashboard,name='dashboard'),
+ path('courses/<slug:slug>/',views.course_detail,name='course'),
+ path('courses/<slug:slug>/enroll/',views.enroll,name='enroll'),
+ path('courses/<slug:slug>/lessons/<int:pk>/',views.lesson,name='lesson'),
+ path('courses/<slug:slug>/lessons/<int:pk>/complete/',views.complete_lesson,name='complete_lesson'),
+ path('courses/<slug:slug>/quiz/',views.quiz,name='quiz'),
+ path('courses/<slug:slug>/certificate/',views.issue_certificate,name='issue_certificate'),
+ path('certificates/<uuid:pk>/',views.certificate,name='certificate'),
+ path('studio/',views.studio,name='studio'),path('studio/new/',views.edit_course,name='new_course'),
+ path('studio/<int:pk>/',views.edit_course,name='edit_course'),
+ path('studio/<int:course_pk>/<str:kind>/new/',views.edit_content,name='new_content'),
+ path('studio/<int:course_pk>/<str:kind>/<int:pk>/',views.edit_content,name='edit_content'),
+ path('studio/<int:course_pk>/<str:kind>/<int:pk>/delete/',views.delete_content,name='delete_content'),
+]
