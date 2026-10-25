@@ -1,1 +1,0 @@
-{% if progress.certificate %}<a class="button secondary full" href="{% url 'certificate' progress.certificate.pk %}">View certificate ↗</a>{% elif progress.eligible %}<form method="post" action="{% url 'issue_certificate' course.slug %}">{% csrf_token %}<button class="button secondary full">Get completion certificate ↗</button></form>{% endif %}
