@@ -13,6 +13,6 @@ Before public operation:
 7. Configure operational logging, alerts, receipt retention, support and refunds. Keep secrets/card data out of logs. Add privacy/terms pages appropriate to your deployment; they are not included.
 8. Run `python manage.py check --deploy` with your actual production settings. Resolve warnings and test HTTPS, cookies, static assets, private downloads and webhooks.
 
-No public deployment, DNS, hosting account or live merchant setup is included in this ZIP. The GitHub Actions workflow is provided; its cross-platform runs have not been executed until you push to GitHub.
+No public deployment, DNS, hosting account or live merchant setup is included in this repository. The GitHub Actions workflow is not committed in this branch (add `.github/workflows/tests.yml` via the GitHub web UI); its cross-platform runs have not been executed.
 
 Django deployment checklist: https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/

@@ -2,7 +2,7 @@
 
 An original, self-hosted learning platform for courses, progress tracking, quizzes and certificates, with Myanmar transfer-payment workflows and optional hosted card checkout.
 
-**Created by Min SiThu ([devminsithu](https://github.com/devminsithu))**  
+**Created by Min SiThu ([itsmeminsithu](https://github.com/itsmeminsithu))**  
 [minsithu.org](https://minsithu.org/) · [Contact](https://minsithu.org/contact/) · MIT License
 
 **Live preview — real app, in GitHub only:** [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/itsmeminsithu/MM-Learning-Management) — this launches the real Django app in GitHub Codespaces. No external host, no static mock. See the Codespaces steps below.
@@ -18,7 +18,7 @@ An original, self-hosted learning platform for courses, progress tracking, quizz
 - Owner administration for users, instructor access and payment configuration.
 - KPay, WavePay, AYA Bank, KBZ Bank and MMQR: configure merchant instructions/QR, submit a private receipt, review and approve enrollment.
 - Optional Stripe hosted card checkout with signed webhook verification. Visa, Mastercard and UnionPay depend on merchant eligibility and provider availability.
-- SQLite persistence, database migrations, regression tests and GitHub Actions configuration.
+- SQLite persistence, database migrations and regression tests.
 - Three original short sample courses. These demonstrate workflows; replace them with your own curriculum.
 
 This is a runnable foundation, not a complete enterprise LMS. Live classrooms, SCORM, organizations, subscriptions, instructor commissions/payouts, refunds, accounting, chat, assignments, coupons and full Burmese interface localization are **not implemented**. See [ROADMAP.md](ROADMAP.md). Burmese course text is supported through Unicode. No third-party LMS code, templates, artwork or course content is bundled.
@@ -41,10 +41,11 @@ On first run, create your owner username and password when prompted. There is **
 
 ## Run on Mac
 
-Install Python **3.11 or newer** from [python.org](https://www.python.org/downloads/). Python 3.13 is suitable. Extract the ZIP first, then in Terminal:
+Install Python **3.11 or newer** from [python.org](https://www.python.org/downloads/). Python 3.13 is suitable. Then:
 
 ```bash
-cd ~/Downloads/mm-learning-management
+git clone https://github.com/itsmeminsithu/MM-Learning-Management.git
+cd MM-Learning-Management
 python3 start.py
 ```
 
@@ -121,8 +122,8 @@ Main source files:
 - Payment options missing: enable a method with the same currency as the course. No fake payment accounts are included.
 - Paid course still locked: uploading a receipt does not grant access. An owner must verify and approve it.
 
-## Publish source / deploy
+## Deploy
 
-Use [GITHUB_SETUP.md](GITHUB_SETUP.md) to upload this source. GitHub Pages cannot run this Django backend. The launcher uses a development server; read [DEPLOYMENT.md](DEPLOYMENT.md) before public hosting.
+GitHub Pages cannot run this Django backend. The launcher uses a development server; read [DEPLOYMENT.md](DEPLOYMENT.md) before public hosting.
 
 Copyright © 2026 Min SiThu (devminsithu). Original project code is released under the [MIT License](LICENSE).
