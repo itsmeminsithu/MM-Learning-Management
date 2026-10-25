@@ -1,24 +1,16 @@
-# Upload to GitHub
+# Repository setup
 
-Suggested repository name: `mm-learning-management`
-
-Suggested description:
-
-> An original Django learning platform with courses, quizzes, progress tracking, certificates, instructor tools, Myanmar payment reviews and optional hosted card checkout.
-
-Create a new empty repository on your GitHub account. Do not initialize it with another README or license. From this extracted folder:
+Clone the repository:
 
 ```bash
-git init
-git add .
-git commit -m "Initial MM Learning Management release"
-git branch -M main
-git remote add origin https://github.com/devminsithu/mm-learning-management.git
-git push -u origin main
+git clone https://github.com/itsmeminsithu/MM-Learning-Management.git
+cd MM-Learning-Management
 ```
 
-Authenticate using your own GitHub credentials when prompted. If you choose a different account/name, change the remote URL. Before pushing, inspect `git status` to ensure local databases, private receipts, environment secrets and virtual environments are excluded.
+Work on a branch and open a pull request to `main`; do not push directly to `main`. See README.md for run and Codespaces preview steps, and DEPLOYMENT.md before public hosting.
 
-Alternatively, upload the extracted project files using GitHub's upload interface. Include `.github/`, `.gitignore`, migration files and all source folders. Do not upload your generated `.local-data/` or `.venv/` folders.
+CI note: `.github/workflows/tests.yml` (checkout, Python 3.11/3.13, `pip install -r requirements.txt`, `manage.py check`, `manage.py makemigrations --check --dry-run`, `manage.py test`) is not committed in this branch because the automated GitHub App cannot push workflow files. Add it via the GitHub web UI after merge.
 
-This source package does not itself create or publish a GitHub repository. GitHub Pages cannot host the Django backend.
+Before pushing, check `git status`: `.local-data/`, `.venv/`, `staticfiles/` and `.env` must stay out of the repository (see `.gitignore`).
+
+GitHub Pages cannot host the Django backend.
