@@ -5,6 +5,8 @@ An original, self-hosted learning platform for courses, progress tracking, quizz
 **Created by Min SiThu ([devminsithu](https://github.com/devminsithu))**  
 [minsithu.org](https://minsithu.org/) · [Contact](https://minsithu.org/contact/) · MIT License
 
+**Live preview — real app, in GitHub only:** [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/itsmeminsithu/MM-Learning-Management) — this launches the real Django app in GitHub Codespaces. No external host, no static mock. See the Codespaces steps below.
+
 ## What works in this release
 
 - Responsive course catalog, keyword search and category filters.
@@ -20,6 +22,22 @@ An original, self-hosted learning platform for courses, progress tracking, quizz
 - Three original short sample courses. These demonstrate workflows; replace them with your own curriculum.
 
 This is a runnable foundation, not a complete enterprise LMS. Live classrooms, SCORM, organizations, subscriptions, instructor commissions/payouts, refunds, accounting, chat, assignments, coupons and full Burmese interface localization are **not implemented**. See [ROADMAP.md](ROADMAP.md). Burmese course text is supported through Unicode. No third-party LMS code, templates, artwork or course content is bundled.
+
+## Live preview in GitHub Codespaces
+
+GitHub Pages cannot run this Django backend, so there is no always-on public app link from GitHub alone. Codespaces is the GitHub-only way to run the real app live:
+
+1. Click **Open in GitHub Codespaces** above (or open https://codespaces.new/itsmeminsithu/MM-Learning-Management), choose a 2-core machine, and wait for setup. Setup installs the dependencies, runs migrations and checks the project.
+2. In the Codespace terminal, run:
+
+```bash
+python3 start.py
+```
+
+On first run, create your owner username and password when prompted. There is **no default password**.
+3. When port **8000** forwards, open it from the preview prompt or the Ports tab. That forwarded page is the real app, not a mock.
+4. Sign in with your owner account, open **Instructor studio** to try the sample courses, or register a separate student account to test enrollment, quizzes and certificates.
+5. Stop the Codespace when you are done, to save your free quota. Data in a Codespace lives in that Codespace only — it is a demo, not a shared production academy.
 
 ## Run on Mac
 
